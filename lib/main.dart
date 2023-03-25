@@ -8,91 +8,187 @@ void main() => runApp(const QuestionApp());
 
 class _QuestionAppState extends State<QuestionApp> {
   var _selectedQuestion = 0;
+  var _totalValue = 0;
   final List<Map<String, Object>> _questions = const [
     {
       'text': 'Who’s the main character in Pokémon?',
-      'answer': ['Ash', 'Professor Oak', 'Pikachu ', 'Lula Molusco'],
+      'answer': [
+        {'text': 'Ash', 'value': 10},
+        {'text': 'Professor Oak', 'value': 0},
+        {'text': 'Pikachu ', 'value': 0},
+        {'text': 'Lula Molusco', 'value': 0},
+      ],
     },
     {
       'text': 'Which of these Pokémon types don’t exist?',
-      'answer': ['Fire', 'Water', 'Glass', 'Picachu'],
+      'answer': [
+        {'text': 'Fire', 'value': 0},
+        {'text': 'Water', 'value': 0},
+        {'text': 'Glass', 'value': 10},
+        {'text': 'Electric', 'value': 0},
+      ],
     },
     {
       'text': 'What colour is Ash’s hat?',
-      'answer': ['White', 'Pink', 'Red', 'Blue'],
+      'answer': [
+        {'text': 'White', 'value': 0},
+        {'text': 'Pink', 'value': 0},
+        {'text': 'Red', 'value': 10},
+        {'text': 'Blue', 'value': 0},
+      ],
     },
     {
       'text': 'Fill in the blank. “ I want to be _____"',
       'answer': [
-        'The very best',
-        'The ultimate Pokémon catcher',
-        'Amazing',
-        'President'
+        {'text': 'The very best', 'value': 10},
+        {'text': 'The ultimate Pokémon catcher', 'value': 0},
+        {'text': 'Amazing', 'value': 0},
+        {'text': 'President', 'value': 0},
       ],
     },
     {
       'text': 'What is the strongest Pokémon?',
-      'answer': ['Pikachu', 'Charzard', 'Arceus', 'Moriart'],
+      'answer': [
+        {'text': 'Pikachu', 'value': 0},
+        {'text': 'Charzard', 'value': 0},
+        {'text': 'Arceus', 'value': 10},
+        {'text': 'Moriart', 'value': 0},
+      ],
     },
     {
       'text': 'What type of Pokémon is Pikachu?',
-      'answer': ['Fire', 'Mystic', 'Electric', 'Water'],
+      'answer': [
+        {'text': 'Fire', 'value': 0},
+        {'text': 'Mystic', 'value': 0},
+        {'text': 'Electric', 'value': 10},
+        {'text': 'Water', 'value': 0},
+      ],
     },
     {
       'text': 'The Pokémon type Fire is weakest against what type of Pokémon?',
-      'answer': ['Bug', 'Ice', 'Water', 'Fire'],
+      'answer': [
+        {'text': 'Bug', 'value': 0},
+        {'text': 'Ice', 'value': 0},
+        {'text': 'Water', 'value': 10},
+        {'text': 'Fire', 'value': 0},
+      ],
     },
     {
       'text': 'How many evolutions does Eevee have?',
-      'answer': ['4', '8', '6', '2'],
+      'answer': [
+        {'text': '4', 'value': 0},
+        {'text': '8', 'value': 10},
+        {'text': '6', 'value': 0},
+        {'text': '2', 'value': 0},
+      ],
     },
     {
       'text': 'Which of these Pokémon is not a starter Pokémon?',
-      'answer': ['Charmander', 'Bulbasaur', 'Meowth', 'Picachu'],
+      'answer': [
+        {'text': 'Charmander', 'value': 0},
+        {'text': 'Bulbasaur', 'value': 0},
+        {'text': 'Meowth', 'value': 10},
+        {'text': 'Picachu', 'value': 0},
+      ],
     },
     {
       'text': 'Which Pokémon is Misty’s main Pokémon?',
-      'answer': ['Ekans', 'Staryu', 'Pikachu', 'Meowth'],
+      'answer': [
+        {'text': 'Ekans', 'value': 0},
+        {'text': 'Staryu', 'value': 10},
+        {'text': 'Pikachu', 'value': 0},
+        {'text': 'Meowth', 'value': 0},
+      ],
     },
     {
       'text': 'What is Piplup’s final evolution?',
-      'answer': ['Prinplup', 'Turtwig', 'Empoleon', 'Meowth'],
+      'answer': [
+        {'text': 'Prinplup', 'value': 0},
+        {'text': 'Turtwig', 'value': 0},
+        {'text': 'Empoleon', 'value': 10},
+        {'text': 'Meowth', 'value': 0},
+      ],
     },
     {
       'text': 'What colour is pollywag?',
-      'answer': ['Red', 'Blue', 'Pink', 'Black'],
+      'answer': [
+        {'text': 'Red', 'value': 0},
+        {'text': 'Blue', 'value': 10},
+        {'text': 'Pink', 'value': 0},
+        {'text': 'Black', 'value': 0},
+      ],
     },
     {
       'text': 'What is squirtle’s final evolution?',
-      'answer': ['Blastoise', 'Ivysaur', 'Wartortle', 'Empoleon'],
+      'answer': [
+        {'text': 'Blastoise', 'value': 10},
+        {'text': 'Ivysaur', 'value': 0},
+        {'text': 'Wartortle', 'value': 0},
+        {'text': 'Empoleon', 'value': 0},
+      ],
     },
     {
       'text': 'How old is Ash in the beginning of the series?',
-      'answer': ['5', '10', '15', '13'],
+      'answer': [
+        {'text': '5', 'value': 0},
+        {'text': '10', 'value': 10},
+        {'text': '15', 'value': 0},
+        {'text': '13', 'value': 0},
+      ],
     },
     {
       'text': 'What is Gyarados’ best attack?',
-      'answer': ['Waterfall', 'Splash', 'Hydro Pump', 'river'],
+      'answer': [
+        {'text': 'Waterfall', 'value': 0},
+        {'text': 'Splash', 'value': 0},
+        {'text': 'Hydro Pump', 'value': 10},
+        {'text': 'River', 'value': 0},
+      ],
     },
     {
       'text': 'What was the first Pokémon ash caught?',
-      'answer': ['Pikachu', 'Caterpie', 'Bulbasaur', 'Staryu'],
+      'answer': [
+        {'text': 'Pikachu', 'value': 0},
+        {'text': 'Caterpie', 'value': 10},
+        {'text': 'Bulbasaur', 'value': 0},
+        {'text': 'Staryu', 'value': 0},
+      ],
     },
     {
       'text': 'What animal is Turtwig?',
-      'answer': ['Dog', 'Bat', 'Turtle', 'Tiger'],
+      'answer': [
+        {'text': 'Dog', 'value': 0},
+        {'text': 'Bat', 'value': 0},
+        {'text': 'Turtle', 'value': 10},
+        {'text': 'Tiger', 'value': 0},
+      ],
     },
     {
       'text': 'How many members are in the Squirtle Squad?',
-      'answer': ['9', '5', '4', '3'],
+      'answer': [
+        {'text': '9', 'value': 0},
+        {'text': '5', 'value': 10},
+        {'text': '4', 'value': 0},
+        {'text': '3', 'value': 0},
+      ],
     },
     {
       'text': 'Who is Brock’s main Pokémon?',
-      'answer': ['Skitty', 'Forretress', 'Pineco', 'Bublebee'],
+      'answer': [
+        {'text': 'Skitty', 'value': 0},
+        {'text': 'Forretress', 'value': 10},
+        {'text': 'Pineco', 'value': 0},
+        {'text': 'Bublebee', 'value': 0},
+      ],
     },
     {
       'text': 'How many types of Pokémon are there?',
-      'answer': ['4', '18', '12', '26'],
+      'answer': [
+        {'text': '4', 'value': 0},
+        {'text': '18', 'value': 10},
+        {'text': '12', 'value': 0},
+        {'text': '26', 'value': 0},
+      ],
     }
   ];
   final List<String> _correctAnswer = const [
@@ -118,11 +214,12 @@ class _QuestionAppState extends State<QuestionApp> {
     '18'
   ];
 
-  void _answer() {
+  void _answer(int value) {
     setState(() {
       _selectedQuestion++;
+      _totalValue += value;
     });
-    print(_selectedQuestion);
+    print(_totalValue);
   }
 
   bool get hasSelectedQuestions {
@@ -136,11 +233,12 @@ class _QuestionAppState extends State<QuestionApp> {
         appBar: AppBar(
           title: const Text('Questions'),
         ),
-        body: hasSelectedQuestions 
-        ? 
-        Quiz(questions: _questions, selectedQuestion: _selectedQuestion, onAnswer: _answer)
-        : 
-        const Result(),
+        body: hasSelectedQuestions
+            ? Quiz(
+                questions: _questions,
+                selectedQuestion: _selectedQuestion,
+                onAnswer: _answer)
+            : Result(_totalValue),
       ),
     );
   }
