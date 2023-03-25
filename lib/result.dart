@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 class Result extends StatelessWidget {
   final int value;
+  final void Function() onRestartQuiz;
 
-  const Result(this.value, {super.key});
+  const Result(this.value, this.onRestartQuiz, {super.key});
 
   String get resultStatement {
     if (value < 100) {
@@ -12,22 +13,31 @@ class Result extends StatelessWidget {
       return 'You are good! Your score was $value out of 200 possible points';
     } else if (value < 190) {
       return 'You are very good! Your score was $value out of 200 possible points';
-    } else{
+    } else {
       return 'You are the best! Your score was $value out of 200 possible points';
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        width: double.infinity,
-        margin: const EdgeInsets.all(10),
-        child: Center(
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Center(
           child: Text(
             resultStatement,
             style: const TextStyle(fontSize: 28),
             textAlign: TextAlign.center,
           ),
-        ));
+        ),
+        ElevatedButton(
+          onPressed: onRestartQuiz,
+          child: const Text(
+            'Restart?', 
+            style: TextStyle(fontSize: 18)
+          ), 
+        ),
+      ],
+    );
   }
 }

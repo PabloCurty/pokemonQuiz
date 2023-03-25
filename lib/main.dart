@@ -222,6 +222,13 @@ class _QuestionAppState extends State<QuestionApp> {
     print(_totalValue);
   }
 
+  void _restartQuiz() {
+    setState(() {
+      _selectedQuestion = 0;
+      _totalValue = 0;
+    });
+  }
+
   bool get hasSelectedQuestions {
     return _selectedQuestion < _questions.length;
   }
@@ -231,14 +238,16 @@ class _QuestionAppState extends State<QuestionApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Questions'),
+          title: const Text('Pokemon Questions'),
         ),
         body: hasSelectedQuestions
-            ? Quiz(
+            ? 
+            Quiz(
                 questions: _questions,
                 selectedQuestion: _selectedQuestion,
                 onAnswer: _answer)
-            : Result(_totalValue),
+            : 
+            Result(_totalValue, _restartQuiz),
       ),
     );
   }
