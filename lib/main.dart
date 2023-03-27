@@ -189,9 +189,99 @@ class _QuestionAppState extends State<QuestionApp> {
         {'text': '12', 'value': 0},
         {'text': '26', 'value': 0},
       ],
-    }
+    },
+    {
+      'text': 'Who is number 1 in the Pokédex?',
+      'answer': [
+        {'text': 'Charmander', 'value': 0},
+        {'text': 'Bulbasaur', 'value': 10},
+        {'text': 'Pikachu', 'value': 0},
+        {'text': 'Bublebee', 'value': 0},
+      ],
+    },
+    {
+      'text': 'How many Pokémon are there?',
+      'answer': [
+        {'text': '1.000', 'value': 0},
+        {'text': '989', 'value': 0},
+        {'text': '913', 'value': 10},
+        {'text': '125', 'value': 0},
+      ],
+    },
+    {
+      'text': 'How many types of Pokéballs are there?',
+      'answer': [
+        {'text': '4', 'value': 0},
+        {'text': '27', 'value': 10},
+        {'text': '13', 'value': 0},
+        {'text': '10', 'value': 0},
+      ],
+    },
+    {
+      'text': 'Who is Ash’s rival?',
+      'answer': [
+        {'text': 'Brock', 'value': 0},
+        {'text': 'Gary', 'value': 10},
+        {'text': 'Charzard', 'value': 0},
+        {'text': 'Coringa', 'value': 0},
+      ],
+    },
+    {
+      'text': 'What are the three types of starter Pokémon?',
+      'answer': [
+        {'text': 'Fairy, Bug, Steel', 'value': 0},
+        {'text': 'Water, Air, Bug', 'value': 0},
+        {'text': 'Grass, Fire, Water', 'value': 10},
+        {'text': 'Batman, Robin, Coringa', 'value': 0},
+      ],
+    },
+    {
+      'text': 'What type of Pokémon is Magmar?',
+      'answer': [
+        {'text': 'Fire', 'value': 10},
+        {'text': 'Steel', 'value': 0},
+        {'text': 'Bug', 'value': 0},
+        {'text': 'Water', 'value': 0},
+      ],
+    },
+    {
+      'text': 'What is Pollywag’s final evolution?',
+      'answer': [
+        {'text': 'Pollygon', 'value': 0},
+        {'text': 'Poliwop', 'value': 0},
+        {'text': 'Poliwrath', 'value': 10},
+        {'text': 'Polidance', 'value': 0},
+      ],
+    },
+    {
+      'text': 'What animal is Growlithe?',
+      'answer': [
+        {'text': 'Dog', 'value': 10},
+        {'text': 'Mouse', 'value': 0},
+        {'text': 'Lion', 'value': 0},
+        {'text': 'Rat', 'value': 0},
+      ],
+    },
+    {
+      'text': 'What colour is Arbok?',
+      'answer': [
+        {'text': 'Yellow', 'value': 0},
+        {'text': 'Pink', 'value': 0},
+        {'text': 'Purple', 'value': 10},
+        {'text': 'Black', 'value': 0},
+      ],
+    },
+    {
+      'text': 'What type of Pokémon is Accelgor?',
+      'answer': [
+        {'text': 'Electric', 'value': 0},
+        {'text': 'Bug', 'value': 10},
+        {'text': 'Fighting', 'value': 0},
+        {'text': 'Elementary', 'value': 0},
+      ],
+    },
   ];
-  final List<String> _correctAnswer = const [
+/*  final List<String> _correctAnswer = const [
     'Ash',
     'Glass',
     'Red',
@@ -212,7 +302,7 @@ class _QuestionAppState extends State<QuestionApp> {
     '5',
     'Forretress',
     '18'
-  ];
+  ];*/
 
   void _answer(int value) {
     setState(() {
@@ -238,16 +328,25 @@ class _QuestionAppState extends State<QuestionApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Pokemon Questions'),
-        ),
+            title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            const Text('Prokemon Chalenge'),
+            Text(
+              'Total: $_totalValue out of 300',
+              style: const TextStyle(
+                color: Color.fromARGB(255, 223, 227, 230),
+                fontSize: 14,
+              ),
+            )
+          ],
+        )),
         body: hasSelectedQuestions
-            ? 
-            Quiz(
+            ? Quiz(
                 questions: _questions,
                 selectedQuestion: _selectedQuestion,
                 onAnswer: _answer)
-            : 
-            Result(_totalValue, _restartQuiz),
+            : Result(_totalValue, _restartQuiz),
       ),
     );
   }

@@ -7,7 +7,7 @@ class Quiz extends StatelessWidget {
   final List<Map<String, Object>> questions;
   final void Function(int) onAnswer;
 
-  Quiz({
+  const Quiz({
     super.key,
     required this.questions,
     required this.selectedQuestion,

@@ -8,13 +8,15 @@ class Result extends StatelessWidget {
 
   String get resultStatement {
     if (value < 100) {
-      return 'You could be better! Your score was $value out of 200 possible points';
+      return 'You could be better! Your score was $value out of 300 possible points';
     } else if (value < 150) {
-      return 'You are good! Your score was $value out of 200 possible points';
+      return 'You are good! Your score was $value out of 300 possible points';
     } else if (value < 190) {
-      return 'You are very good! Your score was $value out of 200 possible points';
+      return 'You are very good! Your score was $value out of 300 possible points';
+    } else if (value < 290) {
+      return 'You are amazing! Your score was $value out of 300 possible points';  
     } else {
-      return 'You are the best! Your score was $value out of 200 possible points';
+      return 'You are the best! Your score was $value out of 300 possible points';
     }
   }
 
@@ -26,7 +28,7 @@ class Result extends StatelessWidget {
         Center(
           child: Text(
             resultStatement,
-            style: const TextStyle(fontSize: 28),
+            style: const TextStyle(fontSize: 18),
             textAlign: TextAlign.center,
           ),
         ),
