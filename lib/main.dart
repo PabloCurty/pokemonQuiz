@@ -1,5 +1,3 @@
-// ignore_for_file: avoid_print
-
 import 'package:flutter/material.dart';
 import './result.dart';
 import './quiz.dart';
@@ -88,7 +86,7 @@ class _QuestionAppState extends State<QuestionApp> {
         {'text': 'Charmander', 'value': 0},
         {'text': 'Bulbasaur', 'value': 0},
         {'text': 'Meowth', 'value': 10},
-        {'text': 'Picachu', 'value': 0},
+        {'text': 'Squirtle', 'value': 0},
       ],
     },
     {
@@ -309,7 +307,6 @@ class _QuestionAppState extends State<QuestionApp> {
       _selectedQuestion++;
       _totalValue += value;
     });
-    print(_totalValue);
   }
 
   void _restartQuiz() {
@@ -348,6 +345,7 @@ class _QuestionAppState extends State<QuestionApp> {
                 onAnswer: _answer)
             : Result(_totalValue, _restartQuiz),
       ),
+    debugShowCheckedModeBanner: false,
     );
   }
 }
